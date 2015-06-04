@@ -1,0 +1,44 @@
+<script type="text/javascript">
+
+    window.onload = function()
+    {
+        /**
+         * wijzig de titel
+         */
+        var eTitel = document.getElementById('kop');
+        eTitel.innerHTML = "De document tree"; // innerHTML changes the content between selected tags
+
+
+        /**
+         * Wijzig de tekst van het 2de list item
+         */
+        var eBolletjes = document.getElementsByTagName('li');
+        var nAantal = eBolletjes.length; // counts all selected elements
+        var e2deItem = eBolletjes[1]; // 2de item
+        e2deItem.removeChild(e2deItem.childNodes[0]); // remove the TEXTnode of the selected li element
+        var sTekst = document.createTextNode("Ruby on Rails"); // creating the new TEXTnode
+        e2deItem.appendChild(sTekst); // inserting the new TEXTnode into the selected li element
+
+
+        /**
+         * een nieuwe item achteraan de lijst toevoegen
+         */
+        var eLijst = document.getElementsByTagName('ul')[0]; // select ul element
+        var eItem = document.createElement('li'); // create new li element and store it in eItem
+        var s2Tekst = document.createTextNode('Pearl'); // create new TEXTnode and store it in s2Tekst
+        eItem.appendChild(s2Tekst); // add to eItem s2Tekst as a child element, result is: <li>Pearl</li>
+        eLijst.appendChild(eItem); // add to ul element the eItem, result is <ul><li>...</li><li>Pearl</li></ul>
+
+
+        /**
+         * attributen zetten en wijzigen
+         */
+        var eImg = document.getElementsByTagName('img')[0]; // select img element
+        eImg.src = "../images/elise.jpg"; // change directly the img source path (src) to the new one
+        var sTooltip = "Elise, system engineer"; // store new tooltip into ne variable sTooltip
+        eImg.setAttribute("alt", sTooltip); // set alt attribute to sTooltip content
+        eImg.setAttribute("title", sTooltip); // set title attribute to sTooltip content
+    }
+
+
+</script>
