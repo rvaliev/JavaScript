@@ -38,6 +38,92 @@
         var sTooltip = "Elise, system engineer"; // store new tooltip into ne variable sTooltip
         eImg.setAttribute("alt", sTooltip); // set alt attribute to sTooltip content
         eImg.setAttribute("title", sTooltip); // set title attribute to sTooltip content
+
+
+
+
+
+        /******************************************************************
+         * TAAK
+         */
+
+        /**
+         * Change text within id="live"
+         */
+        var sLiveTekst = document.getElementById('live').textContent;
+        sLiveTekst = sLiveTekst.innerHTML + " en chocolade";
+
+
+        /**
+         * Add div id="footer" with a text in (also escaping html chars)
+         * @type {HTMLElement}
+         */
+        var eContainer = document.getElementById('container'); // select id=container element
+        var eDiv = document.createElement('div'); // create new element div
+        eDiv.setAttribute("id", "footer"); // setting attribute id="footer" to eDiv element
+        eLink = "<a href='#'>vdab</a>";
+        var eTextNode = document.createTextNode("<je vindt een job op de vdab website >"); // creating textNode (this functions automatically escapes html chars)
+        eDiv.appendChild(eTextNode); // appending eTextNode as a child to the eDiv
+        eContainer.appendChild(eDiv);   // appending eDiv as a child to the eContainer
+
+
+
+        var eWiki = document.getElementById('wikiLink');
+        eWiki.setAttribute("href", "https://www.google.nl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=science%20function");
+
+
+        /**
+         * Creating an Object
+         * @type {Object}
+         */
+
+        /* Method1*/
+        var Boek = Object();
+        Boek.titel = "Criminal and punishment";
+        Boek.auteur = "Dostojevski";
+
+
+        /* Method 2 */
+        var Boek2 = {
+            titel: "JavaScript in 20 blokken",
+            auteurs: {
+                auteur1: "Jan Peeters",
+                auteur2: "Mark Twain",
+                auteur3: "Leo Tolstoy"
+            },
+            publicatieDatum: new Date(2015, 06, 05)
+        };
+
+        // Deleting property: delete Boek2.uitgever;
+
+        /* Looping through object */
+        for (var key in Boek2)
+        {
+            // console.log(key + ": " + Boek2[key]);
+        }
+
+
+        /* Creating methods and functions */
+
+        var operator1 = 2;
+        var operator2 = 3;
+
+        var calculated = counting(operator1, operator2);
+
+        function counting(operator1, operator2)
+        {
+            this.op = function(){
+                return (this.operator1 + this.operator2) / 2;
+            };
+
+
+
+            return this.op;
+        }
+
+
+        console.log(calculated);
+
     }
 
 
