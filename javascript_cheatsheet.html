@@ -105,26 +105,140 @@
 
         /* Creating methods and functions */
 
-        var operator1 = 2;
-        var operator2 = 3;
+        speak = function (line) {
+            console.log(this.type + " - Rabbit says: " + line);
+        };
 
-        var calculated = counting(operator1, operator2);
+        var whiteRabbit = {type: "white", speak: speak};  // first "speak" word is an arbitrary name for the property
+        var blackRabbit = {type: "black", speak: speak};
 
-        function counting(operator1, operator2)
-        {
-            this.op = function(){
-                return (this.operator1 + this.operator2) / 2;
-            };
+        whiteRabbit.speak("I'm white rabbit"); // "speak" is here not a function, but property
 
+        blackRabbit.speak("I'm black one");
 
 
-            return this.op;
+
+        /**
+         * Creating array - 1st way
+         */
+        var tabel_1 = [1, "javaScript", false];
+
+
+
+        /**
+         * Creating array - 2nd way
+         */
+        var tabel_2 = new Array();
+        tabel_2[0] = 2;
+        tabel_2[1] = "JavaScript";
+        tabel_2[2] = false;
+
+        console.log(tabel_2.length); // getting the length of an array by using property "length"
+
+
+
+
+        /**
+         * Looping through array
+         */
+        for(var i = 0; i < tabel_2.length; i++){
+            console.log(tabel_2[i]);
         }
 
 
-        console.log(calculated);
+        /**
+         * Check the variable type
+         */
+        var x = typeof(variable);
 
-    }
+
+        /**
+         * Converting variables
+         */
+        var getal = Number('3.5'); // returns 3.5
+        var getal_2 = Number('3.5 witte muizen'); // returns NaN
+        var geheel = parseInt('3.5 witte muizen'); // returns 3
+        var float = parseFloat('3.5 witte muizen'); // returns 3.5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        ************   Important DOM attributes
+        * Theorie p.70
+        */
+
+        /**
+         * attributes - verzameling van alle attributen
+         */
+        var eTestNode = document.getElementsByTagName('ul');
+        console.log(eTestNode[0].attributes);
+
+
+        /**
+         * childNodes - alle child nodes van de node (geen kleinkinderen)
+         */
+        var eTestNode = document.getElementsByTagName('ul');
+        console.log(eTestNode[0].childNodes);
+
+
+        /**
+         * bv. ul > text > li > text > li
+         */
+        var eTestNode = document.getElementById('lijst');
+        var aaa = eTestNode.childNodes[1].nextSibling.nextSibling;
+        console.log(aaa);
+
+
+        /**
+         * className - leest of schrijft class
+         * bv. <ul id="lijst" class="hello">
+         */
+        var eTestNode = document.getElementById('lijst');
+        var aaa = eTestNode.childNodes[1].nextSibling.nextSibling;
+        console.log(aaa); // hello
+
+        // class overschrijven
+        var eTestNode = document.getElementById('lijst');
+        var aaa = eTestNode.className = "newClass";
+        console.log(aaa);
+
+
+        /**
+         * location - document location
+         */
+        var eTestNode = document.location;
+        var aaa = eTestNode['pathname'];
+        console.log(aaa); //  c://users/...
+
+
+
+
+
+    } // end onload
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
